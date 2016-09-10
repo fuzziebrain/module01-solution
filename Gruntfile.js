@@ -1,19 +1,28 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    browserSync: {
-      bsFiles: {
-        src : [
-          './docs/**/*.html'
-          , './docs/**/*.js'
-          , './docs/**/*.css'
-        ]
+    watch: {
+      files: [
+        'docs/**/*.html'
+        , 'docs/**/*.js'
+        , 'docs/**/*.css'
+      ]
+      , tasks: []
+    }
+    , wiredep: {
+      task: {
+        src: ['docs/**/*.html']
       }
-      , options: {
-        server: {
-          baseDir: "./docs"
-          , routes: {
-            "/lib": "bower_components"
+    }
+    , browserSync: {
+      dev: {
+        options: {
+          server: {
+            baseDir: "./docs"
+            , watchTask: true
+            // , routes: {
+            //   "/lib": "bower_components"
+            // }
           }
         }
       }
@@ -21,6 +30,8 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-browser-sync');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-wiredep');
 
-  grunt.registerTask('default', ['browserSync']);
+  grunt.registerTask('default', ['wiredep', 'browserSync', 'watch']);
 };

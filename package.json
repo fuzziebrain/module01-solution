@@ -21,6 +21,8 @@
   "homepage": "https://github.com/fuzziebrain/module01-solution#readme",
   "devDependencies": {
     "grunt": "^1.0.1",
-    "grunt-browser-sync": "^2.2.0"
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-wiredep": "^3.0.1"
   }
 }
