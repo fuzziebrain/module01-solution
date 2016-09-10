@@ -1,0 +1,26 @@
+{
+  "name": "module01-solution",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuzziebrain/module01-solution.git"
+  },
+  "author": "Adrian Png <png.adrian@yahoo.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fuzziebrain/module01-solution/issues"
+  },
+  "homepage": "https://github.com/fuzziebrain/module01-solution#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-browser-sync": "^2.2.0"
+  }
+}

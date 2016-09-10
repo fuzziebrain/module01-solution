@@ -1,0 +1,25 @@
+{
+  "name": "module01-solution",
+  "homepage": "https://fuzziebrain.github.io/module01-solution",
+  "authors": [
+    "Adrian Png <png.adrian@yahoo.com>"
+  ],
+  "description": "Coursera AngularJS Course - Module 01 Assignment",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.5.8",
+    "angular-animate": "^1.5.8",
+    "angular-aria": "^1.5.8",
+    "angular-messages": "^1.5.8",
+    "angular-material": "^1.1.1"
+  }
+}
