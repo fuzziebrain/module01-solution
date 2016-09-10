@@ -1,0 +1,15 @@
+.message-warn {
+  color: red;
+  border: 1px solid red;
+  padding: 1em;
+}
+
+.message-ok {
+  color: green;
+  border: none;
+  padding: 1em;
+}
+
+.md-button {
+  text-transform: capitalize !important;
+}

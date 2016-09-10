@@ -1,28 +1,65 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    watch: {
-      files: [
-        'docs/**/*.html'
-        , 'docs/**/*.js'
-        , 'docs/**/*.css'
-      ]
-      , tasks: []
+    // watch: {
+    //   dev: {
+    //     files: [
+    //       'www/**/*.html'
+    //       , 'www/**/*.js'
+    //       , 'www/**/*.css'
+    //     ]
+    //     , tasks: ['clean', 'bower', 'copy']
+    //   }
+    // }
+    clean: {
+      options: {
+        force: true
+      }
+      , dev: 'docs/**/*'
     }
-    , wiredep: {
-      task: {
-        src: ['docs/**/*.html']
+    , copy: {
+      dev: {
+        files: [
+          {
+            expand: true
+            , cwd: 'www'
+            , src: '**'
+            , dest: 'docs/'
+          }
+        ]
+      }
+    }
+    , bower: {
+      dev: {
+        base: 'bower_components'
+        , dest: 'docs/lib'
+        , options: {
+          checkExistence: true
+          , debugging: true
+          , paths: {
+            bowerDirectory: 'bower_components'
+            , bowerrc: '.bowerrc'
+            , bowerJson: 'bower.json'
+          }
+        }
       }
     }
     , browserSync: {
       dev: {
-        options: {
+        bsFiles: {
+        src : [
+          'www/**/*.html'
+          , 'www/**/*.js'
+          , 'www/**/*.css'
+        ]
+      }
+      , options: {
           server: {
-            baseDir: "./docs"
-            , watchTask: true
-            // , routes: {
-            //   "/lib": "bower_components"
-            // }
+            baseDir: "www"
+            // , watchTask: true
+            , routes: {
+              "/lib": "bower_components"
+            }
           }
         }
       }
@@ -30,8 +67,11 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-browser-sync');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-wiredep');
+  // grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('main-bower-files');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('default', ['wiredep', 'browserSync', 'watch']);
+  grunt.registerTask('default', ['browserSync']);
+  grunt.registerTask('deploy', ['clean', 'bower', 'copy']);
 };
