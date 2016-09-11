@@ -1,16 +1,6 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    // watch: {
-    //   dev: {
-    //     files: [
-    //       'www/**/*.html'
-    //       , 'www/**/*.js'
-    //       , 'www/**/*.css'
-    //     ]
-    //     , tasks: ['clean', 'bower', 'copy']
-    //   }
-    // }
     clean: {
       options: {
         force: true
@@ -56,7 +46,6 @@ module.exports = function(grunt) {
       , options: {
           server: {
             baseDir: "www"
-            // , watchTask: true
             , routes: {
               "/lib": "bower_components"
             }
@@ -67,7 +56,6 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-browser-sync');
-  // grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('main-bower-files');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
