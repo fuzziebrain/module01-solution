@@ -36,13 +36,18 @@
           }
         }
 
-        if(0 < itemCount && itemCount <= 3) {
-          $scope.message = 'Enjoy!';
-        } else {
-          $scope.message = 'Too much!';
-        }
+        if(itemCount > 0) {
+          if(itemCount <= 3) {
+            $scope.message = 'Enjoy!';
+          } else {
+            $scope.message = 'Too much!';
+          }
 
           $scope.messageClass = 'message-ok';
+        } else {
+          $scope.message = 'Please enter REAL data first';
+          $scope.messageClass = 'message-warn';
+        }
       }
     }
   }
